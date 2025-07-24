@@ -18,6 +18,7 @@ import { Button } from "@/ui/button";
 import { AppIcon } from "@/lib/icon";
 // import { SERVICES } from "@/features/services/pages/section/data";
 import axios from "axios";
+import { API_BASE_URL } from "@/utils/api";
 
 // Input with icon component
 const InputWithIcon = ({ icon, inputProps, ...props }) => {
@@ -45,10 +46,7 @@ export function ContactUs() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/contact",
-        data
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/contact`, data);
       setServerMessage(response.data.message);
       reset(); // Clear form
       setSelectedService("");
