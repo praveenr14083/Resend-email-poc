@@ -1,5 +1,5 @@
-import { contactSchema } from "../models/contactModel.js";
-import { processContactForm } from "../services/contactService.js";
+import { contactSchema } from "../models/contact.model.js";
+import { processContactForm } from "../services/contact.service.js";
 
 export const submitContactForm = async (req, res) => {
   try {

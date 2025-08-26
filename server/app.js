@@ -1,7 +1,7 @@
 import { envConfig } from "./config/env.js";
 import express from "express";
 import cors from "cors";
-import contactRoutes from "./modules/emailNotify/routes/contactRoutes.js";
+import contactRoutes from "./modules/emailNotify/routes/contact.routes.js";
 
 const app = express();
 const PORT = process.env.PORT;
