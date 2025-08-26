@@ -1,7 +1,7 @@
-const { contactSchema } = require("../models/contactModel");
-const { processContactForm } = require("../services/contactService");
+import { contactSchema } from "../models/contactModel.js";
+import { processContactForm } from "../services/contactService.js";
 
-const submitContactForm = async (req, res) => {
+export const submitContactForm = async (req, res) => {
   try {
     const validatedData = contactSchema.parse(req.body);
     const result = await processContactForm(validatedData);
@@ -16,5 +16,3 @@ const submitContactForm = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-module.exports = { submitContactForm };

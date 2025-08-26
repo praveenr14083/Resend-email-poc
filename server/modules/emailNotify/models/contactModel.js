@@ -1,12 +1,10 @@
-const { z } = require("zod");
+import { z } from "zod";
 
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+export const contactSchema = z.object({
+  name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Phone must be at least 10 digits"),
-  subject: z.string().min(3, "Subject is too short"),
-  service: z.string().min(2, "Service is required"),
-  message: z.string().min(5, "Message is too short"),
+  phone: z.string().optional(),
+  service: z.string().min(1, "Service is required"),
+  subject: z.string().min(1, "Subject is required"),
+  message: z.string().min(5, "Message should be at least 5 characters"),
 });
-
-module.exports = { contactSchema };

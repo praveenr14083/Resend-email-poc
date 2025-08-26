@@ -1,19 +1,19 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const contactRoutes = require("./modules/emailNotify/routes/contactRoutes");
+import { envConfig } from "./config/env.js";
+import express from "express";
+import cors from "cors";
+import contactRoutes from "./modules/emailNotify/routes/contactRoutes.js";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// Mount route at /contact
-app.use("/contact", contactRoutes); // POST /contact
+// Routes
+app.use("/contact", contactRoutes);
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
