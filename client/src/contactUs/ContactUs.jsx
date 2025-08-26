@@ -46,7 +46,7 @@ export function ContactUs() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/contact`, data);
+      const response = await axios.post(`${API_BASE_URL}/contact`, data);
       setServerMessage(response.data.message);
       reset(); // Clear form
       setSelectedService("");
