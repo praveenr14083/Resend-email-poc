@@ -7,4 +7,6 @@ export const contactSchema = z.object({
   service: z.string().min(1, "Service is required"),
   subject: z.string().min(1, "Subject is required"),
   message: z.string().min(5, "Message should be at least 5 characters"),
+  scheduleDate: z.string().optional(),
+  scheduleTime: z.string().optional(),
 });

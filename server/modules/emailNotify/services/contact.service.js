@@ -2,7 +2,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const processContactForm = async (contactData) => {
+export const sendContactEmail = async (contactData) => {
   try {
     await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
@@ -15,6 +15,9 @@ export const processContactForm = async (contactData) => {
         <p><strong>Phone:</strong> ${contactData.phone || "N/A"}</p>
         <p><strong>Service:</strong> ${contactData.service}</p>
         <p><strong>Message:</strong><br/> ${contactData.message}</p>
+        <p><strong>Schedule:</strong> ${contactData.scheduleDate || ""} ${
+        contactData.scheduleTime || ""
+      }</p>
       `,
     });
 

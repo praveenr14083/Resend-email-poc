@@ -1,4 +1,4 @@
-import { envConfig } from "./config/env.js";
+import { envConfig } from "./config/env.config.js";
 import express from "express";
 import cors from "cors";
 import contactRoutes from "./modules/emailNotify/routes/contact.routes.js";
